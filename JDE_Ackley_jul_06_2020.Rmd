@@ -20,7 +20,7 @@ Ackley= function(x)
 	fun=-20.0*exp(-0.2*sqrt(firstSum/Num)) - exp(secondSum/Num) + 20 +Euler
   return(fun)
   }
-# f(x)=0 x=(0,0) [−1.28, 1.28]
+# f(x)=0 x=(0,0) [−32, 32]
 
 
 dim=10
@@ -49,6 +49,24 @@ cat('STD',STD,'\n')
 
 
 ```
+#JDE DIM= 10 RUNS= 50 ITE= 1500 
+#MEAN= 4.423129e-15 
+#MAX 7.549517e-15 
+#MIN= 3.996803e-15 
+#STD 1.166216e-15
+
+#JDE DIM= 10 RUNS= 50 ITE= 2000 
+#MEAN= 3.996803e-15 
+#MAX 3.996803e-15 
+#MIN= 3.996803e-15 
+#STD 0
+
+#JDE DIM= 30 RUNS= 50 ITE=1000
+#MEAN= 7.407408e-15 
+#MAX 7.549517e-15 
+#MIN= 3.996803e-15 
+#STD 7.032549e-16 
+
 
 
 
