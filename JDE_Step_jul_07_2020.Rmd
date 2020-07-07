@@ -5,10 +5,6 @@ output: html_notebook
 ```{r}
 library('DEoptimR')
 
-def Step(x):
-    return sum([(i+0.5)**2 for i in x])
-# f(x)=0 x=(0,0) [-100,100]
-
 
 Step= function(x)
   {
