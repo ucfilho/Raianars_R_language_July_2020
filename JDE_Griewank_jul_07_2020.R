@@ -21,7 +21,7 @@ Griewank= function(x)
 	fun=1+sumx2/4000 - prod_cosx_i05
   return(fun)
   }
-# f(x)=0 x=(0,0) [−5.2, 5.2]
+# f(x)=0 x=(0,0) [−600,600]
 
 
 dim=10
