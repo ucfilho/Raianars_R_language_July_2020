@@ -6,16 +6,16 @@ output: html_notebook
 library('DEoptimR')
 
 
-Rastrigin= function(x)
+Sphere= function(x)
   {
   Num=length(x)
 	Sum = 0.0
 
 	for (i in 1:Num)
 	  {
-		Sum =Sum+ x[i]**2.0-10*cos(2.0*pi*x[i])
+		Sum =Sum+ x[i]**2.0
 		}
-	fun=10.0*Num+Sum
+	fun=Sum
   return(fun)
   }
 # f(x)=0 x=(0,0) [−5.2, 5.2]
