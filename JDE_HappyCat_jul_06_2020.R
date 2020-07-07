@@ -1,7 +1,5 @@
 library('DEoptimR')
 
-griewank <- function(x) { 1 + crossprod(x)/4000 - prod( cos(x/sqrt(seq_along(x))) )}
-
 HappyCat = function(x)
   {
    Alpha=1. / 8
@@ -15,13 +13,27 @@ HappyCat = function(x)
   }
 
 
+dim=30
+RUNS=50
+ITE=2000
+Y=0;X=0
 
-# global mimima at (-1,-1,...,-1) - f(x)=0  - d=[-2,2] (qlq dominio)
+for(i in 1:RUNS)
+  {
+  JDE_R=JDEoptim(rep(-32, dim), rep(32, dim), Ackley,
+         tol = 1e-20,NP=100, trace = FALSE,  maxiter =ITE)
+  Y[i]=JDE_R$value
+
+  }
 
 
 
-
-
-JDEoptim(rep(-2, 2), rep(2, 2), HappyCat,
-         tol = 1e-20, trace = TRUE, triter = 100)
-
+MEAN=mean(Y)
+STD=sd(Y)
+MAX=max(Y)
+MIN=min(Y)
+cat('Ackley JDE DIM=',dim,'RUNS=',RUNS,'ITE=',ITE,'\n')
+cat('MEAN=',MEAN,'\n')
+cat('MAX',MAX,'\n')
+cat('MIN=',MIN,'\n')
+cat('STD',STD,'\n')
