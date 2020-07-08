@@ -24,15 +24,17 @@ Griewank= function(x)
 # f(x)=0 x=(0,0) [−600,600]
 
 
-dim=10
+dim=30
 RUNS=50
-ITE=1500
+ITE=2000
+Bounds=600
+NPAR=100
 Y=0;X=0
 
 for(i in 1:RUNS)
   {
-  JDE_R=JDEoptim(rep(-600, dim), rep(600, dim), Griewank,
-         tol = 1e-20,NP=100, trace = FALSE,  maxiter =ITE)
+  JDE_R=JDEoptim(rep(-Bounds, dim), rep(Bounds, dim), Griewank,
+         tol = 1e-20,NP=NPAR, trace = FALSE,  maxiter =ITE)
   Y[i]=JDE_R$value
 
   }
@@ -43,7 +45,7 @@ MEAN=mean(Y)
 STD=sd(Y)
 MAX=max(Y)
 MIN=min(Y)
-cat('Griewank JDE DIM=',dim,'RUNS=',RUNS,'ITE=',ITE,'\n')
+cat('Griewank JDE DIM=',dim,'RUNS=',RUNS,'ITE=',ITE,'Bounds',-Bounds,Bounds,'\n')
 cat('MEAN=',MEAN,'\n')
 cat('MAX',MAX,'\n')
 cat('MIN=',MIN,'\n')
