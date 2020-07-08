@@ -21,7 +21,7 @@ Bent_Cigar= function(x)
 # f(x)=0 , x=(0,0,...,0) [-100,100]
 
 
-dim=10
+dim=30
 RUNS=50
 NPAR=100
 Bounds=100
