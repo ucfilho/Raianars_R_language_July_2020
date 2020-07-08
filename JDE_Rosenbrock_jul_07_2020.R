@@ -3,7 +3,7 @@ library('DEoptimR')
 
 Rosenbrock= function(x)
   {
-  Num=length(x)
+  Num=length(x)-1
   fun=0
   for (i in 1:Num)
   {
