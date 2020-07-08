@@ -18,18 +18,20 @@ Rastrigin= function(x)
 	fun=10.0*Num+Sum
   return(fun)
   }
-# f(x)=0 x=(0,0) [−5.2, 5.2]
+# f(x)=0 x=(0,0) [−5.12, 5.12]
 
 
-dim=10
+dim=30
+NPAR=100
+Bounds=5.12
 RUNS=50
 ITE=1500
 Y=0;X=0
 
 for(i in 1:RUNS)
   {
-  JDE_R=JDEoptim(rep(-5.2, dim), rep(5.2, dim), Rastrigin,
-         tol = 1e-20,NP=100, trace = FALSE,  maxiter =ITE)
+  JDE_R=JDEoptim(rep(-Bounds, dim), rep(Bounds, dim), Rastrigin,
+         tol = 1e-20,NP=NPAR, trace = FALSE,  maxiter =ITE)
   Y[i]=JDE_R$value
 
   }
@@ -40,7 +42,7 @@ MEAN=mean(Y)
 STD=sd(Y)
 MAX=max(Y)
 MIN=min(Y)
-cat('Rastrigin JDE DIM=',dim,'RUNS=',RUNS,'ITE=',ITE,'\n')
+cat('Rastrigin JDE DIM=',dim,'RUNS=',RUNS,'ITE=',ITE,'Bounds=',-Bounds,Bounds,'\n')
 cat('MEAN=',MEAN,'\n')
 cat('MAX',MAX,'\n')
 cat('MIN=',MIN,'\n')
