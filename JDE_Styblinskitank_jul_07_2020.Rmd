@@ -12,7 +12,7 @@ Styblinskitank= function(x)
     sumx2=sumx2+x[i]**2
     sumx4=sumx4+x[i]**4
 		}
-	fun=sumx4-16*sumx2+5*sumx1
+	fun=(sumx4-16*sumx2+5*sumx1)/2
   return(fun)
   }
 # global minimum −39.16599∗n at x=(−2.903534,…,−2.903534) 
