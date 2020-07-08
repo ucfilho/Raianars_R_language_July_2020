@@ -23,7 +23,7 @@ Sphere= function(x)
 
 dim=10
 RUNS=50
-ITE=1500
+ITE=2000
 Bound=100
 Y=0;X=0
 
