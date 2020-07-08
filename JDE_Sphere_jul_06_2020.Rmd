@@ -18,17 +18,18 @@ Sphere= function(x)
 	fun=Sum
   return(fun)
   }
-# f(x)=0 x=(0,0) [−5.2, 5.2]
-
+# f(x)=0 x=(0,0) [−5.12, 5.12]
+# f(x)=0 x=(0,0) [−100, 100]
 
 dim=10
 RUNS=50
 ITE=1500
+Bound=100
 Y=0;X=0
 
 for(i in 1:RUNS)
   {
-  JDE_R=JDEoptim(rep(-5.2, dim), rep(5.2, dim), Sphere,
+  JDE_R=JDEoptim(rep(-Bound, dim), rep(Bound, dim), Sphere,
          tol = 1e-20,NP=100, trace = FALSE,  maxiter =ITE)
   Y[i]=JDE_R$value
 
@@ -40,7 +41,7 @@ MEAN=mean(Y)
 STD=sd(Y)
 MAX=max(Y)
 MIN=min(Y)
-cat('Sphere JDE DIM=',dim,'RUNS=',RUNS,'ITE=',ITE,'\n')
+cat('Sphere JDE DIM=',dim,'RUNS=',RUNS,'ITE=',ITE,'Bound=',-Bound,Bound,'\n')
 cat('MEAN=',MEAN,'\n')
 cat('MAX',MAX,'\n')
 cat('MIN=',MIN,'\n')
