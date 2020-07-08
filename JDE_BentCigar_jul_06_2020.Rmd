@@ -23,13 +23,15 @@ Bent_Cigar= function(x)
 
 dim=10
 RUNS=50
-ITE=1500
+NPAR=100
+Bounds=100
+ITE=2000
 Y=0;X=0
 
 for(i in 1:RUNS)
   {
-  JDE_R=JDEoptim(rep(-100, dim), rep(100, dim), Bent_Cigar,
-         tol = 1e-20,NP=100, trace = FALSE,  maxiter =ITE)
+  JDE_R=JDEoptim(rep(-Bounds, dim), rep(Bounds, dim), Bent_Cigar,
+         tol = 1e-20,NP=NPAR, trace = FALSE,  maxiter =ITE)
   Y[i]=JDE_R$value
 
   }
@@ -40,7 +42,7 @@ MEAN=mean(Y)
 STD=sd(Y)
 MAX=max(Y)
 MIN=min(Y)
-cat('Bent_Cigar JDE DIM=',dim,'RUNS=',RUNS,'ITE=',ITE,'\n')
+cat('Bent_Cigar JDE DIM=',dim,'RUNS=',RUNS,'ITE=',ITE,'Bounds=',-Bounds,Bounds,'\n')
 cat('MEAN=',MEAN,'\n')
 cat('MAX',MAX,'\n')
 cat('MIN=',MIN,'\n')
