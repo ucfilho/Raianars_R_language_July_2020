@@ -21,7 +21,7 @@ ITE=2000
 Y=0;X=0
 for(i in 1:RUNS)
   {
-  JDE_R=JDEoptim(rep(0, dim), rep(pi, dim), Schwefel_12 ,
+  JDE_R=JDEoptim(rep(-100, dim), rep(100, dim), Schwefel_12 ,
          tol = 1e-20,NP=100, trace = FALSE,  maxiter =ITE)
   Y[i]=JDE_R$value
   }
