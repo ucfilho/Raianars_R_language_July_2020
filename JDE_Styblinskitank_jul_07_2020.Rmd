@@ -18,13 +18,14 @@ Styblinskitank= function(x)
 # global minimum −39.16599∗n at x=(−2.903534,…,−2.903534) 
 # Not Convex it is usually evaluated  xi =[(-5,5),..(-5,5)]
 
-dim=10
+dim=30
 RUNS=50
 ITE=2000
+Bounds=5
 Y=0;X=0
 for(i in 1:RUNS)
   {
-  JDE_R=JDEoptim(rep(-5, dim), rep(5, dim), Styblinskitank ,
+  JDE_R=JDEoptim(rep(-Bounds, dim), rep(Bounds, dim), Styblinskitank ,
          tol = 1e-20,NP=100, trace = FALSE,  maxiter =ITE)
   Y[i]=JDE_R$value
   }
@@ -32,7 +33,7 @@ MEAN=mean(Y)
 STD=sd(Y)
 MAX=max(Y)
 MIN=min(Y)
-cat('Styblinskitank JDE DIM=',dim,'RUNS=',RUNS,'ITE=',ITE,'\n')
+cat('Styblinskitank JDE DIM=',dim,'RUNS=',RUNS,'ITE=',ITE,'Bounds=',-Bounds,Bounds,'\n')
 cat('MEAN=',MEAN,'\n')
 cat('MAX',MAX,'\n')
 cat('MIN=',MIN,'\n')
