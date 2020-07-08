@@ -22,15 +22,16 @@ Ackley= function(x)
   }
 # f(x)=0 x=(0,0) [−32, 32]
 
-
-dim=10
+ITE=2000
+dim=30
 RUNS=50
 Y=0;X=0
-
+NPAR=100
+Bounds=32
 for(i in 1:RUNS)
   {
-  JDE_R=JDEoptim(rep(-32, dim), rep(32, dim), Ackley,
-         tol = 1e-20,NP=100, trace = FALSE,  maxiter =1500)
+  JDE_R=JDEoptim(rep(-Bounds, dim), rep(Bounds, dim), Ackley,
+         tol = 1e-20,NP=NPAR, trace = FALSE,  maxiter =ITE)
   Y[i]=JDE_R$value
 
   }
@@ -41,7 +42,7 @@ MEAN=mean(Y)
 STD=sd(Y)
 MAX=max(Y)
 MIN=min(Y)
-cat('Ackley JDE DIM=',dim,'RUNS=',RUNS,'\n')
+cat('Ackley JDE DIM=',dim,'RUNS=',RUNS,'Bounds=',-Bounds, Bounds,'\n')
 cat('MEAN=',MEAN,'\n')
 cat('MAX',MAX,'\n')
 cat('MIN=',MIN,'\n')
