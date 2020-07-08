@@ -14,13 +14,15 @@ Michalewicz= function(x)
   }
 # Global Minimum: 0 , domain=[0,pi]
 
-dim=10
+dim=30
 RUNS=50
 ITE=2000
+Bounds_low=0
+Bounds_up=pi
 Y=0;X=0
 for(i in 1:RUNS)
   {
-  JDE_R=JDEoptim(rep(0, dim), rep(pi, dim), Michalewicz ,
+  JDE_R=JDEoptim(rep(Bounds_low, dim), rep(Bounds_up, dim), Michalewicz ,
          tol = 1e-20,NP=100, trace = FALSE,  maxiter =ITE)
   Y[i]=JDE_R$value
   }
@@ -28,7 +30,7 @@ MEAN=mean(Y)
 STD=sd(Y)
 MAX=max(Y)
 MIN=min(Y)
-cat('Michalewicz JDE DIM=',dim,'RUNS=',RUNS,'ITE=',ITE,'\n')
+cat('Michalewicz JDE DIM=',dim,'RUNS=',RUNS,'ITE=',ITE,'Bounds=',Bounds_low,Bounds_up,'\n')
 cat('MEAN=',MEAN,'\n')
 cat('MAX',MAX,'\n')
 cat('MIN=',MIN,'\n')
