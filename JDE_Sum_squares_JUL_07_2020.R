@@ -9,7 +9,6 @@ Sum_squares= function(x)
   {
     fun = fun+ i *x[i]**2
    }
-  fun=-fun
   return(fun)
   }
 # f(x)=0 x=(0,0) , d=[-10,10]
