@@ -22,7 +22,7 @@ Y=0;X=0
 for(i in 1:RUNS)
   {
   JDE_R=JDEoptim(rep(-Bounds, dim), rep(Bounds, dim), Sum_squares ,
-         tol = 1e-20,NP=100, trace = FALSE,  maxiter =ITE)
+         tol = 1e-100,NP=100, trace = FALSE,  maxiter =ITE)
   Y[i]=JDE_R$value
   }
 MEAN=mean(Y)
