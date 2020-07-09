@@ -15,7 +15,7 @@ Schwefel_12= function(x)
   }
 # f(x)=0 x=(0,0) [−100, 100]
 
-dim=10
+dim=30
 RUNS=50
 ITE=2000
 Bounds=100
