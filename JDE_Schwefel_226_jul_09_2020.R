@@ -8,7 +8,7 @@ Schwefel_226= function(x)
 	  {
 		Sum =Sum+ x[i]*sin((abs(x[i]))**0.5)
 		}
-	fun=418.982887272433799807913601398*len(x)-Sum
+	fun=418.982887272433799807913601398*Num-Sum
   return(fun)
   }
   
