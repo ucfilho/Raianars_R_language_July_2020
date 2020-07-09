@@ -25,7 +25,7 @@ dim=30
 NPAR=100
 Bounds=5.12
 RUNS=50
-ITE=1500
+ITE=2000
 Y=0;X=0
 
 for(i in 1:RUNS)
